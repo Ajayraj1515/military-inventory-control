@@ -1,54 +1,114 @@
-**Military Asset Management System**
+# 🛡️ Military Asset Management System
+
+A robust, secure, and role-based web application for managing military assets like vehicles, weapons, and ammunition across multiple bases. Designed to empower commanders and logistics personnel with tools to efficiently **track**, **assign**, **transfer**, and **audit** all critical military assets.
+
+---
+
+## 🚀 Live Demo
+
+🔗 **Deployed App**: [Military Inventory Control](https://military-inventory-controlajay.netlify.app/login)  
+🔗 **GitHub Repository**: [View on GitHub](https://github.com/Ajayraj1515/military-inventory-control)
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React.js (with Vite)** – Fast bundling and performance-optimized development
+- **Tailwind CSS** – Utility-first CSS framework for responsive, clean UI
+- **React Router** – For SPA navigation
+- **Axios** – API requests
+- **React Context / State Management** – For global state and user role management
+
+### Backend ( you guys need to implement as Iam good with frontned a suggestion for backend)
+- **Node.js + Express.js** – RESTful API server
+- **JWT (JSON Web Tokens)** – Secure role-based authentication
+- **Express Middleware** – Role-based access control (RBAC) layer
+- **Winston/Morgan** – For logging and auditing API transactions
+
+### Database
+- **MySQL** – Relational database for structured data integrity  
+- **Sequelize ORM** – Simplified query handling and schema management
+
+---
+
+## 🧩 System Features
+
+### 📊 Dashboard
+- View summarized metrics for:
+  - Opening & Closing Balances
+  - Net Movements = Purchases + Transfers In − Transfers Out
+  - Assigned & Expended Assets
+- Filter data by:
+  - **Date**
+  - **Base**
+  - **Equipment Type**
+- 💡 Clicking "Net Movement" shows detailed breakdown (Bonus Feature)
+
+### 🛒 Purchases Page
+- Add new asset purchases per base and equipment type
+- Filter/view historical purchases by date and equipment type
+
+### 🔄 Transfers Page
+- Transfer assets between bases
+- Maintains a clear **Transfer History Log** with timestamps
+
+### 🎖️ Assignments & Expenditures
+- Assign assets to personnel
+- Record and view **expenditures** of assets
+- Audit history of assignments and usage
+
+---
+
+## 🔐 Role-Based Access Control (RBAC)
+
+| Role             | Access                                                                 |
+|------------------|------------------------------------------------------------------------|
+| **Admin**        | Full access to all data and modules                                    |
+| **Base Commander** | Access limited to their assigned base data                           |
+| **Logistics Officer** | Access to only purchase and transfer modules                      |
+
+RBAC is securely implemented via Express middleware to protect each route.
+
+---
 
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🗃️ Why MySQL?
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **Relational structure** is ideal for tracking balances, assets, and transaction logs between related tables such as `bases`, `assets`, `transfers`, `purchases`, `assignments`, and `users`.
+- Ensures **data consistency** and **ACID compliance**, crucial for auditability and tracking military inventory.
+- Easy to define foreign key relationships (e.g., Base ID → Transfer → Purchase → Assignments)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🔐 Security & Logging
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- All sensitive operations are **authenticated and authorized** using JWT tokens.
+- Middleware ensures only authorized roles access protected routes.
+- **Audit logs** of every action (purchases, transfers, assignments) are maintained using Winston or Morgan logger.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 📈 Future Enhancements
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+- Notification system for low stock levels
+- Export reports as CSV/PDF
+- QR code scanning for physical inventory mapping
+- Real-time updates using WebSockets
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## 📄 License
 
-This project is built with:
+This project is licensed under the [MIT License](LICENSE).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
+---
 
 
 
